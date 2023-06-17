@@ -10,7 +10,7 @@ chrome.runtime.onMessage.addListener(
                 // 現在アクティブなタブで使用されているすべてのクッキーを取得する
                 chrome.cookies.getAll({ url: tabs[0].url }, function(cookies) {
                     //ネスケ形式へ変換
-                    var cookieString = '';
+                    var cookieString = '# Netscape HTTP Cookie File\n';
                     cookies.forEach(function(cookie) {
                         cookieString += cookie.domain + '\t';
                         cookieString += 'TRUE\t';
