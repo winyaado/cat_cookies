@@ -12,6 +12,8 @@ chrome.runtime.onMessage.addListener(
                     //ネスケ形式へ変換
                     var cookieString = '# Netscape HTTP Cookie File\n';
                     cookies.forEach(function(cookie) {
+                        //ドメインの先頭に . がなければ付ける
+                        var domain = cookie.domain.startsWith('.') ? cookie.domain : '.' + cookie.domain;
                         cookieString += cookie.domain + '\t';
                         cookieString += 'TRUE\t';
                         cookieString += cookie.path + '\t';
